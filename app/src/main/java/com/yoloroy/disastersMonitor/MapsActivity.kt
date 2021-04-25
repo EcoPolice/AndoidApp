@@ -15,6 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.yoloroy.disastersMonitor.models.Disaster
+import com.yoloroy.disastersMonitor.utils.putDisaster
 import com.yoloroy.disastersMonitor.web.apiClient
 import kotlinx.android.synthetic.main.activity_maps.*
 import kotlinx.coroutines.launch
@@ -94,20 +95,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(currentEvent.coordinates.latLng))
 
                 val intent = Intent(this, DisasterInfoActivity::class.java)
-                intent.putExtra("id", currentEvent.id)
-                intent.putExtra("name", currentEvent.name)
-                intent.putExtra("images", currentEvent.images.toTypedArray())
-                intent.putExtra("coordinates", currentEvent.coordinates)
-                intent.putExtra("date", currentEvent.date)
-                intent.putExtra("description", currentEvent.description)
-                intent.putExtra("objectName", currentEvent.objectName)
-                intent.putExtra("owner", currentEvent.owner)
-                intent.putExtra("cause", currentEvent.cause)
-                intent.putExtra("product", currentEvent.product)
-                intent.putExtra("volume", currentEvent.volume)
-                intent.putExtra("area", currentEvent.area)
-                intent.putExtra("damagedCount", currentEvent.damagedCount)
-                intent.putExtra("damagedObjects", currentEvent.damagedObjects.toTypedArray())
+                intent.putDisaster(currentEvent)
 
                 startActivity(intent)
 

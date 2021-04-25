@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import com.yoloroy.disastersMonitor.models.Disaster
+import com.yoloroy.disastersMonitor.utils.getDisaster
 import kotlinx.android.synthetic.main.activity_disaster_info.*
 import kotlin.time.ExperimentalTime
 import kotlin.time.seconds
@@ -17,25 +18,7 @@ class DisasterInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_disaster_info)
 
-        intent.extras!!.run {
-            @Suppress("UNCHECKED_CAST")
-            disaster = Disaster(
-                getInt("id"),
-                getString("name")!!,
-                getStringArray("images")!!.toList(),
-                getSerializable("coordinates")!! as Pair<Double, Double>,
-                getInt("date"),
-                getString("description")!!,
-                getString("objectName")!!,
-                getString("owner")!!,
-                getString("cause")!!,
-                getString("product")!!,
-                getString("volume")!!,
-                getInt("area"),
-                getInt("damagedCount"),
-                getStringArray("damagedObjects")!!.toList()
-            )
-        }
+        disaster = intent.extras!!.getDisaster()
 
         disaster.run {
             disasterName.text = name
