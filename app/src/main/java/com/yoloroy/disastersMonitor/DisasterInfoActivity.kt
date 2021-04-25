@@ -24,15 +24,15 @@ class DisasterInfoActivity : AppCompatActivity() {
             disasterName.text = name
             disasterDate.text = date.seconds.toIsoString()
             disasterDescription.text = description
-            vobjectName.text = disaster.objectName
-            vowner.text = disaster.owner
-            vcause.text = disaster.cause
-            vproduct.text = disaster.product
-            vvolume.text = disaster.volume
-            varea.text = "${disaster.area} m^2"
+            vobjectName.text = objectName
+            vowner.text = owner
+            vcause.text = cause
+            vproduct.text = product
+            vvolume.text = volume
+            varea.text = "$area m^2"
             vdamage.text = "kill me"
-            vdamagedCount.text = "damaged: ${disaster.damagedCount}"
-            vdamagedObjects.text = disaster.damagedObjects.joinToString(",")
+            vdamagedCount.text = "damaged: $damagedCount"
+            vdamagedObjects.text = damagedObjects.joinToString(",")
         }
     }
 
