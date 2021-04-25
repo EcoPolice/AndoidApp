@@ -76,7 +76,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
         disastersViewModel.disasters.observeForever {
-            loadDisasters(it!!)
+            if (!it.isNullOrEmpty())
+                loadDisasters(it)
         }
     }
 
@@ -84,22 +85,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.clear()
 
         disasters.forEach { disaster ->
-            mMap.addMarker(
-                MarkerOptions()
-                    .position(disaster.coordinates.latLng)
-                    .title(disaster.id.toString())
-            )
-            mMap.setOnMarkerClickListener { marker ->
-                val currentEvent = disasters.find { it.id.toString() == marker.title }!!
+            try {
+                mMap.addMarker(
+                    MarkerOptions()
+                        .position(disaster.coordinates.latLng)
+                        .title(disaster.id.toString())
+                )
+                mMap.setOnMarkerClickListener { marker ->
+                    val currentEvent = disasters.find { it.id.toString() == marker.title }!!
 
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(currentEvent.coordinates.latLng))
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(currentEvent.coordinates.latLng))
 
-                val intent = Intent(this, DisasterInfoActivity::class.java)
-                intent.putDisaster(currentEvent)
+                    val intent = Intent(this, DisasterInfoActivity::class.java)
+                    intent.putDisaster(currentEvent)
 
-                startActivity(intent)
+                    startActivity(intent)
 
-                true
+                    true
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }

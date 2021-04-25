@@ -44,13 +44,13 @@ class DisasterInfoActivity : AppCompatActivity() {
         prevImage.setOnClickListener {
             currentImage--
             if (currentImage < 0)
-                currentImage = disaster.images.size
+                currentImage = disaster.images?.size ?: 0
             viewImage()
         }
 
         nextImage.setOnClickListener {
             currentImage++
-            if (currentImage > disaster.images.lastIndex)
+            if (currentImage > disaster.images?.lastIndex ?: -1)
                 currentImage = 0
             viewImage()
         }
@@ -65,10 +65,10 @@ class DisasterInfoActivity : AppCompatActivity() {
     }
 
     private fun viewImage() {
-        if (disaster.images.isNotEmpty())
+        if (!disaster.images.isNullOrEmpty())
             Picasso
                 .with(this)
-                .load(disaster.images[currentImage])
+                .load(disaster.images!![currentImage])
                 .into(imageView)
     }
 

@@ -7,7 +7,7 @@ import com.yoloroy.disastersMonitor.models.Disaster
 fun Intent.putDisaster(disaster: Disaster) {
     putExtra("id", disaster.id)
     putExtra("name", disaster.name)
-    putExtra("images", disaster.images.toTypedArray())
+    putExtra("images", disaster.images?.toTypedArray() ?: emptyArray())
     putExtra("coordinates", disaster.coordinates)
     putExtra("date", disaster.date)
     putExtra("description", disaster.description)
@@ -24,16 +24,16 @@ fun Intent.putDisaster(disaster: Disaster) {
 @Suppress("UNCHECKED_CAST")
 fun Bundle.getDisaster() = Disaster(
     getInt("id"),
-    getString("name")!!,
+    getString("name") ?: getString("objectName")!!,
     getStringArray("images")!!.toList(),
     getSerializable("coordinates")!! as Pair<Double, Double>,
     getInt("date"),
-    getString("description")!!,
-    getString("objectName")!!,
+    getString("description").toString(),
+    getString("objectName") ?: getString("name")!!,
     getString("owner")!!,
     getString("cause")!!,
     getString("product")!!,
-    getString("volume")!!,
+    getString("volume").toString(),
     getInt("area"),
     getInt("damagedCount"),
     getStringArray("damagedObjects")!!.toList()
