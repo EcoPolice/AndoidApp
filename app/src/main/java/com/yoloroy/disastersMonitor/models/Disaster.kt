@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class Disaster(
     @SerializedName("id") val id: Int,
     @SerializedName("disasterName") val name: String,
-    @SerializedName("images") val images: List<String>?,
+    @SerializedName("images") var images: List<String>?,
     @SerializedName("lat") val lat: Double,
     @SerializedName("long") val lng: Double,
-    @SerializedName("disasterDate") val date: Int,
+    @SerializedName("disasterDate") val date: Long,
     @SerializedName("disasterDescription") val description: String,
     @SerializedName("objectName") val objectName: String,
     @SerializedName("owner") val owner: String,
@@ -17,14 +17,14 @@ data class Disaster(
     @SerializedName("volume") val volume: String,
     @SerializedName("area") val area: Int, // square meters
     @SerializedName("damageCount") val damagedCount: Int,
-    @SerializedName("damagedObjects") val damagedObjects: List<String>
+    @SerializedName("damagedObjects") val damagedObjects: List<String>?
 ) {
     constructor(
         id: Int,
         name: String,
         images: List<String>,
         coords: Pair<Double, Double>,
-        date: Int,
+        date: Long,
         description: String,
         objectName: String,
         owner: String,

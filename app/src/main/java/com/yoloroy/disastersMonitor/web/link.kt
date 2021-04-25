@@ -14,5 +14,5 @@ interface Link {
 
     @Multipart
     @POST("upload")
-    fun uploadImage(@Part img: MultipartBody.Part): Call<Any>
+    fun uploadImage(@Part img: MultipartBody.Part): Call<Any?>
 }

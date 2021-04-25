@@ -18,7 +18,7 @@ fun Intent.putDisaster(disaster: Disaster) {
     putExtra("volume", disaster.volume)
     putExtra("area", disaster.area)
     putExtra("damagedCount", disaster.damagedCount)
-    putExtra("damagedObjects", disaster.damagedObjects.toTypedArray())
+    putExtra("damagedObjects", disaster.damagedObjects?.toTypedArray() ?: emptyArray())
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -27,7 +27,7 @@ fun Bundle.getDisaster() = Disaster(
     getString("name") ?: getString("objectName")!!,
     getStringArray("images")!!.toList(),
     getSerializable("coordinates")!! as Pair<Double, Double>,
-    getInt("date"),
+    getInt("date").toLong(),
     getString("description").toString(),
     getString("objectName") ?: getString("name")!!,
     getString("owner")!!,
