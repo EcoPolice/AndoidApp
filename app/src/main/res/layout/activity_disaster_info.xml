@@ -104,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/disasterDate" />
 
     <TextView
-        android:id="@+id/objectName"
+        android:id="@+id/vobjectName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/disasterDescription" />
 
     <TextView
-        android:id="@+id/owner"
+        android:id="@+id/vowner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -124,10 +124,10 @@
         android:text="owner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/objectName" />
+        app:layout_constraintTop_toBottomOf="@+id/vobjectName" />
 
     <TextView
-        android:id="@+id/cause"
+        android:id="@+id/vcause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -135,10 +135,10 @@
         android:text="cause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/owner" />
+        app:layout_constraintTop_toBottomOf="@+id/vowner" />
 
     <TextView
-        android:id="@+id/product"
+        android:id="@+id/vproduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -146,10 +146,10 @@
         android:text="product"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cause" />
+        app:layout_constraintTop_toBottomOf="@+id/vcause" />
 
     <TextView
-        android:id="@+id/volume"
+        android:id="@+id/vvolume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -157,10 +157,10 @@
         android:text="volume"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product" />
+        app:layout_constraintTop_toBottomOf="@+id/vproduct" />
 
     <TextView
-        android:id="@+id/area"
+        android:id="@+id/varea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -168,10 +168,10 @@
         android:text="area"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volume" />
+        app:layout_constraintTop_toBottomOf="@+id/vvolume" />
 
     <TextView
-        android:id="@+id/damage"
+        android:id="@+id/vdamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -179,10 +179,10 @@
         android:text="damage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/area" />
+        app:layout_constraintTop_toBottomOf="@+id/varea" />
 
     <TextView
-        android:id="@+id/damagedCount"
+        android:id="@+id/vdamagedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -190,10 +190,10 @@
         android:text="damagedCount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/damage" />
+        app:layout_constraintTop_toBottomOf="@+id/vdamage" />
 
     <TextView
-        android:id="@+id/damagedObjects"
+        android:id="@+id/vdamagedObjects"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -201,6 +201,6 @@
         android:text="damagedObjects"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/damagedCount" />
+        app:layout_constraintTop_toBottomOf="@+id/vdamagedCount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

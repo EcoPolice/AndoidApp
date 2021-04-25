@@ -1,13 +1,11 @@
 package com.yoloroy.disastersMonitor
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import com.yoloroy.disastersMonitor.models.Disaster
-import com.yoloroy.disastersMonitor.models.DisasterData
 import kotlinx.android.synthetic.main.activity_disaster_info.*
 import kotlin.time.ExperimentalTime
-import kotlin.time.days
 import kotlin.time.seconds
 
 class DisasterInfoActivity : AppCompatActivity() {
@@ -28,17 +26,14 @@ class DisasterInfoActivity : AppCompatActivity() {
                 getSerializable("coordinates")!! as Pair<Double, Double>,
                 getInt("date"),
                 getString("description")!!,
-                DisasterData(
-                    getString("objectName")!!,
-                    getString("owner")!!,
-                    getString("cause")!!,
-                    getString("product")!!,
-                    getString("volume")!!,
-                    getInt("area"),
-                    getString("damage")!!,
-                    getInt("damagedCount"),
-                    getStringArray("damagedObjects")!!.toList()
-                )
+                getString("objectName")!!,
+                getString("owner")!!,
+                getString("cause")!!,
+                getString("product")!!,
+                getString("volume")!!,
+                getInt("area"),
+                getInt("damagedCount"),
+                getStringArray("damagedObjects")!!.toList()
             )
         }
 
@@ -46,15 +41,15 @@ class DisasterInfoActivity : AppCompatActivity() {
             disasterName.text = name
             disasterDate.text = date.seconds.toIsoString()
             disasterDescription.text = description
-            objectName.text = disaster.data.objectName
-            owner.text = disaster.data.owner
-            cause.text = disaster.data.cause
-            product.text = disaster.data.product
-            volume.text = disaster.data.volume
-            area.text = "${disaster.data.area} m^2"
-            damage.text = disaster.data.damage
-            damagedCount.text = "damaged: ${disaster.data.damagedCount}"
-            damagedObjects.text = disaster.data.damagedObjects.joinToString(",")
+            vobjectName.text = disaster.objectName
+            vowner.text = disaster.owner
+            vcause.text = disaster.cause
+            vproduct.text = disaster.product
+            vvolume.text = disaster.volume
+            varea.text = "${disaster.area} m^2"
+            vdamage.text = "kill me"
+            vdamagedCount.text = "damaged: ${disaster.damagedCount}"
+            vdamagedObjects.text = disaster.damagedObjects.joinToString(",")
         }
     }
 
@@ -78,7 +73,7 @@ class DisasterInfoActivity : AppCompatActivity() {
         }
 
         goToMap.setOnClickListener {
-            finishActivity(0)
+            finish()
         }
 
         addImage.setOnClickListener {
